@@ -20,10 +20,13 @@ app.get('/tasks', (req, res) => {
 // POST /tasks
 app.post('/tasks', (req, res) => {
   const data = readDB();
-  const newTask = req.body;
+  const taskData = req.body;
   
   if (!data.tasks) data.tasks = [];
-  data.tasks.push(newTask);
+
+  const newId = data.tasks.length > 0 ? Math.max(...data.tasks.map(t => t.id)) + 1 : 1;
+  const newTask = { ...taskData, id: newId };
+  data.tasks.unshift(newTask);
   
   writeDB(data);
   res.json(newTask);
