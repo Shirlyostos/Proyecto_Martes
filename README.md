@@ -1,105 +1,88 @@
 # Lista de Tareas - Sistema Colaborativo de Gestión de Tareas
 
-<div align="center">
+## 1. README principal (este archivo)
 
-![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react)
-![Vite](https://img.shields.io/badge/Vite-4.4.0-646CFF?style=for-the-badge&logo=vite)
-![Tailwind](https://img.shields.io/badge/Tailwind-3.3.0-38B2AC?style=for-the-badge&logo=tailwind-css)
-![JSON Server](https://img.shields.io/badge/JSON_Server-0.17.0-000000?style=for-the-badge&logo=json)
+a) Descripción del proyecto
 
-**Aplicación web moderna para gestión colaborativa de tareas en equipo**
+- Team To-Do: aplicación web para gestión colaborativa de tareas en equipo. Permite registro/login, creación/edición/eliminación de tareas, asignación por usuario, búsqueda y filtros.
 
-[![SENA](https://img.shields.io/badge/SENA-Proyecto_Final-FF6B00?style=for-the-badge)](https://www.sena.edu.co)
+b) Stack tecnológico usado
 
-</div>
+- Frontend: React, Vite, Tailwind CSS, React Router, Axios.
+- Backend: Node.js (simulado con JSON Server o Express), db (JSON o DB remota en Railway).
 
-##  Tabla de Contenidos
+c) Requisitos previos
 
-- [ Descripción del Proyecto](#-descripción-del-proyecto)
-- [ Características](#-características)
-- [ Tecnologías Utilizadas](#️-tecnologías-utilizadas)
-- [ Instalación y Configuración](#-instalación-y-configuración)
-- [ Uso de la Aplicación](#-uso-de-la-aplicación)
-- [ Arquitectura del Proyecto](#️-arquitectura-del-proyecto)
-- [ Estructura de Carpetas](#-estructura-de-carpetas)
-- [ Autores](#-autores)
-- [ Contacto](#-contacto)
+- Node.js v18+ y npm o yarn.
+- (Opcional) Git para clonar.
 
-##  Descripción del Proyecto
+d) Cómo ejecutar el frontend en local
 
-**Team To-Do** es una aplicación web desarrollada como proyecto final para el SENA, que permite a equipos de trabajo colaborar en la gestión y organización de tareas de manera eficiente y en tiempo real.
+1. Desde la raíz del proyecto:
 
-### Contexto Académico
-- **Institución:** Servicio Nacional de Aprendizaje (SENA)
-- **Programa:** Tecnólogo en Análisis y Desarrollo de Software
-- **Módulos Aplicados:** 1 al 4 (React, Estado, Componentes, APIs)
-- **Instructor:** Jeysson Contreras
+```bash
+cd Proyecto_Martes
+npm install
+npm run dev
+```
 
-##  Características
+o si usas yarn:
 
-###  Autenticación y Seguridad
-- ✅ Sistema de login para dos usuarios
-- ✅ Rutas protegidas y navegación segura
-- ✅ Persistencia de sesión
-- ✅ Logout con confirmación
+```bash
+yarn
+yarn dev
+```
 
-###  Gestión de Tareas
-- ✅ **CRUD Completo:** Crear, Leer, Actualizar, Eliminar tareas
-- ✅ **Tareas colaborativas:** Multi-usuario
-- ✅ **Estados:** Completado/Pendiente
-- ✅ **Edición en tiempo real**
-- ✅ **Eliminación con confirmación**
-- ✅ **Búsqueda inteligente** por autor o contenido
+El frontend utiliza Vite y se servirá en http://localhost:5173 por defecto.
 
-###  Experiencia de Usuario
-- ✅ **Diseño responsive** (Mobile First)
-- ✅ **Interfaz moderna** con colores pastel
-- ✅ **Notificaciones Toast** para feedback
-- ✅ **Estados de carga** y manejo de errores
-- ✅ **Animaciones suaves** y transiciones
+e) Cómo ejecutar el backend en local
 
-### 📊 Funcionalidades Avanzadas
-- ✅ **Búsqueda en tiempo real** con debounce
-- ✅ **Estadísticas del equipo** en tiempo real
-- ✅ **Persistencia local** con localStorage
-- ✅ **Backend simulado** con JSON Server
-- ✅ **Filtrado dinámico** de contenido
+1. Ir a la carpeta `backend` e instalar dependencias:
 
-## 🛠️ Tecnologías Utilizadas
+```bash
+cd backend
+npm install
+npm run dev
+```
 
-### Frontend
-| Tecnología | Versión | Propósito |
-|------------|---------|-----------|
-| **React** | 18.2.0 | Biblioteca principal UI |
-| **Vite** | 4.4.0 | Build tool y dev server |
-| **Tailwind CSS** | 3.3.0 | Framework de estilos |
-| **React Router DOM** | 6.8.0 | Navegación entre vistas |
-| **Axios** | 1.6.0 | Cliente HTTP para APIs |
-| **React Toastify** | 9.1.0 | Sistema de notificaciones |
+Si se usa JSON Server (db.json incluido), un script típico sería:
 
-### Backend (Simulado)
-| Tecnología | Versión | Propósito |
-|------------|---------|-----------|
-| **JSON Server** | 0.17.0 | API REST simulada |
-| **Node.js** | 18+ | Runtime environment |
+```bash
+npx json-server --watch db.json --port 4000
+```
 
-### Herramientas de Desarrollo
-| Herramienta | Propósito |
-|-------------|-----------|
-| **ESLint** | Análisis estático de código |
-| **Prettier** | Formateo de código |
-| **Git** | Control de versiones |
+f) Cómo configurar variables de entorno (ejemplo de `.env.example`)
 
-## 🚀 Instalación y Configuración
+Coloca un archivo `.env` en la raíz o en `backend/` según corresponda. Ejemplo mínimo:
 
-### Prerrequisitos
-- **Node.js** versión 18 o superior
-- **npm** o **yarn** como gestor de paquetes
-- **Git** para clonar el repositorio
+```
+# FRONTEND
+VITE_API_URL=http://localhost:4000
 
-### 📥 Pasos de Instalación
+# BACKEND (si aplica)
+PORT=4000
+DATABASE_URL=
+JWT_SECRET=tu_secreto_aqui
+```
 
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/Shirlyostos/PROYECTO_FINAL.git 
-   cd reactproyectofinal-1
+Guarda una copia como `.env.example` sin claves sensibles para el repo.
+
+g) Links a despliegues (rellenar con URLs del proyecto)
+
+- Frontend (Vercel): https://your-frontend.vercel.app
+- Backend (Render): https://your-backend.onrender.com
+- Railway (DB / captura): https://railway.app/project/your-project (o captura de pantalla si no está disponible)
+
+---
+
+## 2. Documentos complementarios
+
+- Diagrama y descripción de arquitectura: [ARQUITECTURA.md](ARQUITECTURA.md)
+- Documentación de API: [API.md](API.md)
+
+## Contribuir
+
+Si quieres contribuir, crea un fork y abre un pull request. Para cualquier duda contacta al autor.
+
+---
+Proyecto generado y mantenido como proyecto final académico.
