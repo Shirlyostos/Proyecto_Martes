@@ -21,13 +21,18 @@ app.get('/tasks', (req, res) => {
 app.post('/tasks', (req, res) => {
   const data = readDB();
   const taskData = req.body;
-  
+
   if (!data.tasks) data.tasks = [];
+
+  // Validar que la tarea tenga texto y autor
+  if (!taskData.text || !taskData.author) {
+    return res.status(400).json({ error: 'La tarea debe tener texto y autor.' });
+  }
 
   const newId = data.tasks.length > 0 ? Math.max(...data.tasks.map(t => t.id)) + 1 : 1;
   const newTask = { ...taskData, id: newId };
   data.tasks.unshift(newTask);
-  
+
   writeDB(data);
   res.json(newTask);
 });
