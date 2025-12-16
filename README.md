@@ -117,6 +117,7 @@ g) Links a despliegues (rellenar con URLs del proyecto)
 Usuario: Laura Buritica
 Contraseña: Laura2707
 
+- Frontend : https://proyectodlist.netlify.app/ (o la nueva URL que generes)
 - Backend : https://todolistshirly.onrender.com
 
 
