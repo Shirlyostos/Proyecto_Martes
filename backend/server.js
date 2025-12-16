@@ -57,14 +57,14 @@ app.delete('/tasks/:id', (req, res) => {
   res.json({ ok: true });
 });
 
-// GET /users (para login)
-app.get('/users', (req, res) => {
+// POST /login
+app.post('/login', (req, res) => {
   const data = readDB();
-  const { username, password } = req.query;
+  const { username, password } = req.body;
   
   const user = data.users?.find(u => u.username === username && u.password === password);
   
-  res.json(user ? [user] : []);
+  res.json(user ? user : null);
 });
 
 const PORT = process.env.PORT || 3001;
