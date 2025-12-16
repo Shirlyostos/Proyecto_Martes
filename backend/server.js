@@ -43,6 +43,11 @@ app.put('/tasks/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const updatedTask = req.body;
   
+  // Validar que la tarea actualizada tenga texto y autor
+  if (!updatedTask.text || !updatedTask.author) {
+    return res.status(400).json({ error: 'La tarea actualizada debe tener texto y autor.' });
+  }
+
   const index = data.tasks.findIndex(t => t.id === id);
   
   if (index !== -1) {
