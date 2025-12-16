@@ -107,6 +107,20 @@ Proyecto generado y mantenido como proyecto final académico.
 PORT=3001
 
 ```
+/
+├── backend/        # Contiene el servidor de la API (Node.js/Express o json-server)
+│   └── db.json     # Base de datos para json-server
+├── public/         # Archivos estáticos del frontend
+├── src/            # Código fuente del frontend (React)
+│   ├── components/ # Componentes reutilizables
+│   ├── pages/      # Vistas principales de la aplicación
+│   └── ...
+├── .gitignore
+├── API.md          # Documentación de la API
+├── ARQUITECTURA.md # Documentación de la arquitectura
+├── package.json    # Dependencias y scripts del proyecto
+└── README.md       # Este archivo
+```
 
 
 
@@ -117,7 +131,6 @@ g) Links a despliegues (rellenar con URLs del proyecto)
 Usuario: Laura Buritica
 Contraseña: Laura2707
 
-- Frontend : https://proyectodlist.netlify.app/ (o la nueva URL que generes)
 - Backend : https://todolistshirly.onrender.com
 
 
