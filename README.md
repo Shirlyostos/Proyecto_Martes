@@ -113,6 +113,10 @@ PORT=3001
 g) Links a despliegues (rellenar con URLs del proyecto)
 
 - Frontend : https://proyectodlist.netlify.app/
+## Datos para ingresar a la lista de tareas:
+Usuario: Laura Buritica
+Contraseña: Laura2707
+
 - Backend : https://todolistshirly.onrender.com
 
 
