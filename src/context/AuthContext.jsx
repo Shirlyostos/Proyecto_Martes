@@ -1,20 +1,28 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { authAPI } from '../services/api';
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    try {
+      const storedUser = localStorage.getItem('user');
+      return storedUser ? JSON.parse(storedUser) : null;
+    } catch (error) {
+      console.error('Failed to parse user from localStorage', error);
+      return null;
+    }
+  });
   const [loading, setLoading] = useState(false);
 
   const login = async (credentials) => {
     setLoading(true);
     try {
       const response = await authAPI.login(credentials);
-      if (response.data.length > 0) {
-        setUser(response.data[0]);
-        toast.success(`¡Bienvenido ${response.data[0].username}!`);
+      if (response.data) {
+        setUser(response.data);
+        toast.success(`¡Bienvenido ${response.data.username}!`);
         return true;
       } else {
         toast.error('Credenciales incorrectas');
@@ -30,9 +38,16 @@ export function AuthProvider({ children }) {
   };
 
   const logout = () => {
+    localStorage.removeItem('user');
     setUser(null);
     toast.info('Sesión cerrada');
   };
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+    }
+  }, [user]);
 
   return (
     <AuthContext.Provider value={{ user, login, logout, loading }}>

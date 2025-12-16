@@ -64,7 +64,13 @@ app.post('/login', (req, res) => {
   
   const user = data.users?.find(u => u.username === username && u.password === password);
   
-  res.json(user ? user : null);
+  if (user) {
+    // No enviar la contraseña al cliente
+    const { password, ...userToReturn } = user;
+    res.json(userToReturn);
+  } else {
+    res.json(null);
+  }
 });
 
 const PORT = process.env.PORT || 3001;
