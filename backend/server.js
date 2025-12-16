@@ -68,16 +68,16 @@ app.delete('/tasks/:id', (req, res) => {
 // POST /login
 app.post('/login', (req, res) => {
   const data = readDB();
-  const { username, password } = req.body;
+  const { username, password: bodyPassword } = req.body;
   
-  const user = data.users?.find(u => u.username === username && u.password === password);
+  const user = data.users?.find(u => u.username === username && u.password === bodyPassword);
   
   if (user) {
     // No enviar la contraseña al cliente
     const { password, ...userToReturn } = user;
-    res.json(userToReturn);
+    res.json([userToReturn]); // Devolver un array con el usuario, como espera el frontend
   } else {
-    res.json(null);
+    res.json([]); // Devolver un array vacío si no se encuentra, como espera el frontend
   }
 });
 
