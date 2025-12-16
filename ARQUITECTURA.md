@@ -14,6 +14,12 @@ Documento de arquitectura que complementa el README. Incluye un diagrama sencill
 
 - Flujo general: Usuario → Frontend → Backend → DB
 
+## Puertos predeterminados
+
+- Frontend (Vite en desarrollo): `5173` → http://localhost:5173
+- Backend (Express / server.js): `3001` → http://localhost:3001
+- JSON Server (si se usa): `3001` → http://localhost:3001
+
 Puedes exportar el diagrama a `ARQUITECTURA.png` o adjuntar el fichero `.drawio` al repo.
 
 ## Descripción de componentes
@@ -42,7 +48,7 @@ Puedes exportar el diagrama a `ARQUITECTURA.png` o adjuntar el fichero `.drawio`
 
 - Triggers: push a `main` o PR hacia `main`.
 - Pasos típicos:
-  1. Instalar dependencias (`npm ci`).
+  1. Instalar dependencias (`npm install`).
   2. Ejecutar linters (`npm run lint`).
   3. Ejecutar tests (si existen) (`npm test`).
   4. Build del frontend (`npm run build`).

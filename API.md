@@ -2,7 +2,11 @@
 
 Este documento describe los endpoints principales que ofrece el backend (simulado con JSON Server o una API Express). Ajusta URLs y cuerpos según la implementación real.
 
-Base URL (local): `http://localhost:4000`
+## Puertos predeterminados
+
+- Frontend (Vite en desarrollo): `5173` → http://localhost:5173
+- Backend (Express / server.js): `3001` → http://localhost:3001
+- JSON Server (si se usa): `3001` → http://localhost:3001
 
 ## Endpoints principales
 
